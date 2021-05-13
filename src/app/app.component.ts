@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'stateManegment';
+  counter = 0
+  updatedAt?: number
+
+  clear(): void {
+    this.updatedAt = Date.now()
+    this.counter = 0
+  }
+
+  decrease(): void {
+    this.updatedAt = Date.now()
+    this.counter--
+  }
+
+  increase(): void {
+    this.updatedAt = Date.now()
+    this.counter++
+  }
 }
