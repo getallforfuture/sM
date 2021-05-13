@@ -7,17 +7,20 @@
 
 <button
   (click)="decrease()"
-  [disabled]="counter <= 0"
+  [disabled]="cannotDecrease$ | async"
   class="fz-60 m-20 p-50"
 >
   -1
 </button>
 
-<button (click)="clear()" class="fz-60 m-20 p-50">
+<button
+  (click)="clear()"
+  [disabled]="cannotDecrease$ | async"
+  class="fz-60 m-20 p-50">
   =0
 </button>
 
-<p class="fz-60"> Счетчик = {{counter}}</p>
-<p *ngIf="updatedAt" class="fz-60">
-  Updated {{updatedAt | date: 'HH:mm:ss dd/MM/2000'}}
+<p class="fz-60"> Счетчик = {{count$ | async}}</p>
+<p *ngIf="updatedAt$ | async" class="fz-60">
+  Updated {{updatedAt$ | async | date: 'HH:mm:ss dd/MM/2000'}}
 </p>
